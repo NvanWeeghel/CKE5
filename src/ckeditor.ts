@@ -25,7 +25,13 @@ import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
-import { Image, ImageUpload } from '@ckeditor/ckeditor5-image';
+import {
+	Image,
+	ImageCaption,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload
+} from '@ckeditor/ckeditor5-image';
 import { Indent, IndentBlock } from '@ckeditor/ckeditor5-indent';
 import { Link } from '@ckeditor/ckeditor5-link';
 import { List, ListProperties } from '@ckeditor/ckeditor5-list';
@@ -34,9 +40,18 @@ import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
-import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
+import {
+	SpecialCharacters,
+	SpecialCharactersArrows,
+	SpecialCharactersCurrency,
+	SpecialCharactersEssentials,
+	SpecialCharactersLatin,
+	SpecialCharactersMathematical,
+	SpecialCharactersText
+} from '@ckeditor/ckeditor5-special-characters';
 import { Table, TableColumnResize, TableProperties, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
+import { Undo } from '@ckeditor/ckeditor5-undo';
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
@@ -59,6 +74,9 @@ class Editor extends ClassicEditor {
 		Heading,
 		HorizontalLine,
 		Image,
+		ImageCaption,
+		ImageStyle,
+		ImageToolbar,
 		ImageUpload,
 		Indent,
 		IndentBlock,
@@ -72,6 +90,12 @@ class Editor extends ClassicEditor {
 		RemoveFormat,
 		SourceEditing,
 		SpecialCharacters,
+		SpecialCharactersArrows,
+		SpecialCharactersCurrency,
+		SpecialCharactersEssentials,
+		SpecialCharactersLatin,
+		SpecialCharactersMathematical,
+		SpecialCharactersText,
 		Strikethrough,
 		Subscript,
 		Superscript,
@@ -80,7 +104,8 @@ class Editor extends ClassicEditor {
 		TableProperties,
 		TableToolbar,
 		TextTransformation,
-		Underline
+		Underline,
+		Undo
 	];
 
 	public static override defaultConfig: EditorConfig = {
@@ -101,8 +126,8 @@ class Editor extends ClassicEditor {
 				'blockQuote',
 				'codeBlock',
 				'|',
-				'fontFamily',
 				'fontSize',
+				'fontFamily',
 				'mediaEmbed',
 				'-',
 				'heading',
@@ -132,6 +157,15 @@ class Editor extends ClassicEditor {
 			shouldNotGroupWhenFull: true
 		},
 		language: 'en',
+		image: {
+			toolbar: [
+				'imageTextAlternative',
+				'toggleImageCaption',
+				'imageStyle:inline',
+				'imageStyle:block',
+				'imageStyle:side'
+			]
+		},
 		table: {
 			contentToolbar: [
 				'tableColumn',
