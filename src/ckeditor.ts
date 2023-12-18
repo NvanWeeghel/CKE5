@@ -53,8 +53,7 @@ import { Table, TableColumnResize, TableProperties, TableToolbar } from '@ckedit
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { Undo } from '@ckeditor/ckeditor5-undo';
 import  SourceEditingCodeMirror  from "@cdubz/ckeditor5-source-editing-codemirror/src/sourceeditingcodemirror";
-
-//import Anchor  from 'ckeditor5-anchor/src/anchor';
+import Anchor from '@ckeditor/ckeditor5-anchor/src/anchor';
 
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
@@ -110,7 +109,8 @@ class Editor extends ClassicEditor {
 		TextTransformation,
 		Underline,
 		Undo,
-		SourceEditingCodeMirror
+		SourceEditingCodeMirror,
+		Anchor
 	];
 
 	public static override defaultConfig: EditorConfig = {
@@ -158,6 +158,7 @@ class Editor extends ClassicEditor {
 				'indent',
 				'|',
 				'sourceEditing',
+				'Anchor',
 			],
 			shouldNotGroupWhenFull: true
 		},

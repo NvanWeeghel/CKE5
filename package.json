@@ -35,6 +35,7 @@
     "@ckeditor/ckeditor5-table": "40.2.0",
     "@ckeditor/ckeditor5-typing": "40.2.0",
     "@ckeditor/ckeditor5-undo": "40.2.0",
+    "@ckeditor/ckeditor5-anchor": "nvanweeghel/ckeditor5-anchor",
     "codemirror": "^5.65.16"
   },
   "devDependencies": {
@@ -54,7 +55,7 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "postbuild": "tsc --declaration --declarationDir build --stripInternal --emitDeclarationOnly"
   }
 }

@@ -24,8 +24,36 @@ ClassicEditor
                 lineWrapping: true,
                 lineNumbers: true,
                 mode: 'text/html',
+
             }
         },
+        width: '100%',
+        link:{
+            decorators:{
+                openInNewTab: {
+                    mode: 'manual',
+                    label: 'Open in new tab',
+                    defaultValue: true,
+                    attributes: {
+                        target: '_blank',
+                        rel: 'noopener noreferrer'
+                    }
+                },
+                isAnchor: {
+                    mode: 'automatic',
+                    callback: url => url.startsWith('#'),
+                    attributes: {
+                        target: '_self',
+                        rel: 'noopener noreferrer'
+                    }
+                }
+            },
+            attributes: {
+                target: '_self',
+                rel: 'noopener noreferrer'
+            }
+
+        }
 	} )
 	.then( Neweditor => {
 		editor = Neweditor;
