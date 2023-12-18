@@ -8,6 +8,7 @@
   "main": "./build/ckeditor.js",
   "types": "./build/ckeditor.d.ts",
   "dependencies": {
+    "@cdubz/ckeditor5-source-editing-codemirror": "^35.1.0",
     "@ckeditor/ckeditor5-alignment": "40.2.0",
     "@ckeditor/ckeditor5-autoformat": "40.2.0",
     "@ckeditor/ckeditor5-basic-styles": "40.2.0",
@@ -33,7 +34,8 @@
     "@ckeditor/ckeditor5-special-characters": "40.2.0",
     "@ckeditor/ckeditor5-table": "40.2.0",
     "@ckeditor/ckeditor5-typing": "40.2.0",
-    "@ckeditor/ckeditor5-undo": "40.2.0"
+    "@ckeditor/ckeditor5-undo": "40.2.0",
+    "codemirror": "^5.65.16"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^40.2.0",

@@ -18,7 +18,14 @@ ClassicEditor
                     'start', 'target', 'nowrap', 'class', 'value', 'title', 'hspace', 'bordercolor', 'background', 'vspace', 'language',
                 ],
             },
-        }
+        },
+        sourceEditingCodeMirror: {
+            options: {
+                lineWrapping: true,
+                lineNumbers: true,
+                mode: 'text/html',
+            }
+        },
 	} )
 	.then( Neweditor => {
 		editor = Neweditor;
@@ -46,6 +53,8 @@ document.querySelector('#escaped').addEventListener('click', () => {
     console.log(data.replace(/'/g, "\\'"));
 
 });
+
+
 
 function handleSampleError( error ) {
 	const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
