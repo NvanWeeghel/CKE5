@@ -3,84 +3,13 @@ let editor;
 ClassicEditor
 	.create( document.querySelector( '.editor' ), {
 		// Editor configuration.
-        extraAllowedContent: {
-            div: {},
-            a: {classes: ['contentTooltip', 'category']},
-            img: {attributes: ['id', 'usemap']},
-            map: {attributes: ['name']},
-            area: {attributes: ['shape', 'coords', 'href', 'target', 'alt', 'title']},
-            iframe: {attributes: ['src', 'width', 'height', 'frameborder', 'allowfullscreen']},
-            '*': {
-                styles: '*',
-                attributes: [
-                    'lang', 'face', 'border', 'cellspacing', 'cellpadding', 'width', 'valign', 'colspan', 'rowspan', 'align',
-                    'size', 'clear', 'name', 'href', 'id', 'type', 'span', 'height', 'color', 'alt', 'src', 'contenteditable',
-                    'start', 'target', 'nowrap', 'class', 'value', 'title', 'hspace', 'bordercolor', 'background', 'vspace', 'language',
-                ],
-            },
-        },
-        sourceEditingCodeMirror: {
-            options: {
-                lineWrapping: true,
-                lineNumbers: true,
-                mode: 'text/html',
-
-            }
-        },
-        width: '100%',
-        link:{
-            decorators:{
-                openInNewTab: {
-                    mode: 'manual',
-                    label: 'Open in new tab',
-                    defaultValue: true,
-                    attributes: {
-                        target: '_blank',
-                        rel: 'noopener noreferrer'
-                    }
-                },
-                isAnchor: {
-                    mode: 'automatic',
-                    callback: url => url.startsWith('#'),
-                    attributes: {
-                        target: '_self',
-                        rel: 'noopener noreferrer'
-                    }
-                }
-            },
-            attributes: {
-                target: '_self',
-                rel: 'noopener noreferrer'
-            }
-
-        }
 	} )
 	.then( Neweditor => {
 		editor = Neweditor;
+       document.getElementById("toolbar").appendChild(editor.ui.view.toolbar.element);
+
 	} )
 	.catch( handleSampleError );
-
-document.querySelector('#submit').addEventListener('click', () => {
-    const data = editor.getData();
-
-    console.log(data);
-});
-
-document.querySelector('#tekst').addEventListener('click', () => {
-    editor.setData(document.querySelector('#input').value);
-    document.querySelector('#input').value = '';
-});
-
-document.querySelector('#submit2').addEventListener('click', () => {
-    editor.setData(editor.getData());
-});
-
-document.querySelector('#escaped').addEventListener('click', () => {
-    const data = editor.getData();
-    //replace ' with \'
-    console.log(data.replace(/'/g, "\\'"));
-
-});
 
 
 

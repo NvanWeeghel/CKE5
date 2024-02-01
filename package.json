@@ -8,8 +8,6 @@
   "main": "./build/ckeditor.js",
   "types": "./build/ckeditor.d.ts",
   "dependencies": {
-    "@cdubz/ckeditor5-source-editing-codemirror": "^35.1.0",
-    "@ckeditor/ckeditor5-alignment": "40.2.0",
     "@ckeditor/ckeditor5-autoformat": "40.2.0",
     "@ckeditor/ckeditor5-basic-styles": "40.2.0",
     "@ckeditor/ckeditor5-block-quote": "40.2.0",
@@ -34,9 +32,7 @@
     "@ckeditor/ckeditor5-special-characters": "40.2.0",
     "@ckeditor/ckeditor5-table": "40.2.0",
     "@ckeditor/ckeditor5-typing": "40.2.0",
-    "@ckeditor/ckeditor5-undo": "40.2.0",
-    "@ckeditor/ckeditor5-anchor": "nvanweeghel/ckeditor5-anchor",
-    "codemirror": "^5.65.16"
+    "@ckeditor/ckeditor5-undo": "40.2.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^40.2.0",
@@ -55,7 +51,7 @@
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --mode production",
     "postbuild": "tsc --declaration --declarationDir build --stripInternal --emitDeclarationOnly"
   }
 }
